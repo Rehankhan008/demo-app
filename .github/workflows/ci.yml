@@ -22,7 +22,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: rehan008/demo-app:latest
+          tags: rehan008/demo-app:${{ github.sha }}
 
   deploy:
     needs: docker 
@@ -57,5 +57,5 @@ jobs:
             sudo docker ps -a -q --filter "name=demo-app" | xargs -r docker stop
             sudo docker ps -a -q --filter "name=demo-app" | xargs -r docker rm
 
-            docker pull rehan008/demo-app:latest
+            docker pull rehan008/demo-app:${{ github.sha }}
             docker run -d --name demo-app -p 5000:5000 rehan008/demo-app:latest
