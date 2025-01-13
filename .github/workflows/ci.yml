@@ -2,10 +2,10 @@ name: cicd
 
 on:
   push:
-    environment: EC2
 
 jobs:
   docker:
+    environment: EC2
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
