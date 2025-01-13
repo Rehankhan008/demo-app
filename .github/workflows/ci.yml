@@ -25,6 +25,7 @@ jobs:
           tags: rehan008/demo-app:latest
 
   deploy:
+    needs: docker 
     
     runs-on: ubuntu-latest
     environment: EC2
