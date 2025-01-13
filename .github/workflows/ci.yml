@@ -52,5 +52,9 @@ jobs:
             sudo usermod -aG docker ubuntu
             sudo newgrp docker
 
+             # Stop and remove the old container (if it exists)
+            sudo docker stop demo-app || true
+            sudo docker rm demo-app || true
+
             docker pull rehan008/demo-app:latest
             docker run -d --name demo-app -p 5000:5000 rehan008/demo-app:latest
