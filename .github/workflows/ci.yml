@@ -2,6 +2,7 @@ name: cicd
 
 on:
   push:
+    enviroment: EC2
 
 jobs:
   docker:
